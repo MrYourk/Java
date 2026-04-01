@@ -1,5 +1,7 @@
 package chapter10.view;
 
+import chapter10.domain.House;
+import chapter10.service.HouseService;
 import chapter10.utils.Utility;
 
 /**
@@ -7,10 +9,12 @@ import chapter10.utils.Utility;
  * 2. 接收用户的输入
  * 3. 调用HouseService完成对房屋信息的各种操作
  */
-public class MouserView {
+public class HouseView {
 
     private boolean loop = true;
     private char key = ' ';
+
+    private HouseService houseService = new HouseService(2);
 
     //主菜单
     public void mainMenu(){
@@ -40,7 +44,7 @@ public class MouserView {
                     System.out.println("4");
                     break;
                 case '5':
-                    System.out.println("5");
+                    listHouse();
                     break;
                 case '6':
                     this.exit();
@@ -55,6 +59,20 @@ public class MouserView {
         key = Utility.readConfirmSelection();
         if (key == 'Y'){
             loop = false;
+        }
+    }
+
+    //查看房屋信息列表
+    public void listHouse(){
+        System.out.println("-----------------房屋列表-----------------");
+        System.out.println("编号\t\t房主\t\t电话\t\t地址\t\t月租\t\t状态(已出租/未出租)");
+        House[] houses = houseService.list();
+
+        for (int i = 0; i < houses.length; i++) {
+            if (houses[i] == null){
+                break;
+            }
+            System.out.println(houses[i]);
         }
     }
 

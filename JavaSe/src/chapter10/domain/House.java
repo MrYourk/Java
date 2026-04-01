@@ -2,7 +2,7 @@ package chapter10.domain;
 /**
  * House的对象表示一个房屋信息
  */
-public class Mouse {
+public class House {
     private int id;
     private String name;
     private String phone;
@@ -11,7 +11,7 @@ public class Mouse {
     private String status;
 
 
-    public Mouse(int id, String name, String phone, String address, int rent, String status) {
+    public House(int id, String name, String phone, String address, int rent, String status) {
         this.id = id;
         this.name = name;
         this.phone = phone;
