@@ -73,8 +73,8 @@ public class House {
         return  id +
                 "\t\t" + name +
                 "\t" + phone +
-                "\t\t" + address +
-                "\t" + rent +
-                "\t" + status ;
+                "\t" + address +
+                "\t\t" + rent +
+                "\t\t" + status ;
     }
 }
